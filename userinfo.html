@@ -1,0 +1,70 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script language="javascript" src="./js/alert.js"></script>
+<link rel="stylesheet" href="./css/mainpage.css">
+</head>
+<body bgcolor="#ffffff">
+<?php
+ 	session_start ();
+ 	include "sql_connect.php";
+ 	$user = $_SESSION ['currentuser'];
+ 	$sql = "select * from tb_member where member_id='{$user}'";
+ 	$result = mysql_query ( $sql, $con ) or die ( "Could not query: " . mysql_error () );
+ 	$name = mysql_result ( $result, 0, 1 );
+	 $employee_num = mysql_result ( $result, 0,2 );
+ 	$title = mysql_result ( $result, 0, 3);
+ 	$mail = mysql_result ( $result, 0, 5 );
+	$tel = mysql_result ( $result, 0, 6 );
+    $level = mysql_result ( $result, 0, 7 );
+ 	$status = mysql_result ( $result, 0, 8 );
+	    if($status=='0') $status='正常';
+    else if ($status=='1') $stutas='异常';
+       if ($level=='0') $level='数据库录入员';
+	   else if ($level=='1') $level='支付会计';
+	   else if ($level=='2') $level='支付出纳员';
+	   else if ($level=='3') $level='支付监督经理';
+	   else if ($level=='4') $level='数据库管理员';
+	   else if ($level=='5') $level='超级管理员';
+ 	mysql_free_result ( $result );
+ 	mysql_close ( $con );
+?>
+<div 	 >
+		<div class="div_title">
+			<h2>个人信息</h2>
+		</div>
+<div  class="div_table">
+	<br/>
+			   <table >
+			     <tr>
+				   <th >姓名</th>
+				   <th><?php echo "$name";  ?></th>
+				   </tr>
+				   <tr>
+				   <th>邮箱</th>
+				   <th><?php echo "$mail";  ?></th>
+				   </tr>
+				   <tr>
+				   <th>类型</th>
+                   <th><?php echo "$level";  ?></th>
+				   </tr>
+				   <tr>
+				   <th>状态</th>
+				   <th><?php echo "$status";  ?></th>
+				   </tr>
+				   <tr>
+				    <th>员工号</th>
+                    <th><?php echo "$employee_num";  ?></th>
+					</tr>
+					<tr>
+					 <th>职务</th>
+					 <th><?php echo "$title";  ?></th>
+					 </tr>
+					 <tr>
+					 <th>电话</th>
+                     <th><?php echo "$tel";  ?></th>
+				 </tr>
+			   </table>
+		</div>
+</body>
+</html>

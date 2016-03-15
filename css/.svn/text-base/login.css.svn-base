@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+
+div {
+	border: 2px solid;
+	margin:0 auto;
+}
+.div_top {
+	text-align:center;
+	height:18%;
+	font-size:36px;
+}
+.div_picture {
+	margin-top:10px;
+	width:60%;
+	height:80%;
+	float:left;
+}
+.div_login {
+	margin-top:10px;
+	width:39%;
+	height:80%;
+	text-align:center;
+	float:right;
+}
+a:link {
+	color:blue;
+	text-decoration:none;
+	}
+a:visited{
+	color:blue;
+	text-decoration:none;
+	}
+a:active{
+	color:blue;
+	text-decoration:none;
+	}
+a:hover {
+	color:blue；
+	text-decoration:none;
+	}

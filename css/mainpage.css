@@ -1,0 +1,77 @@
+@CHARSET "UTF-8";
+
+
+div {
+	border: 1px solid;
+	margin:0 auto;
+}
+.div_title {
+	margin-top:60px;
+	width:600px;
+	text-align:center;
+}
+.div_button {
+	width:290px;
+	text-align:center;
+}
+.div_input {
+margin-top:20px;
+	width:600px;
+	text-align:center;
+}
+.div_button1 {
+	width:600px;
+	text-align:center;
+}
+.div_table {
+width:600px;
+	text-align:center;
+}
+.div_form {
+width:600px;
+	text-align:center;
+}
+.div_content {
+	width:600px;
+	text-align:left;
+}
+.div_index {
+	text-align:center;
+	margin-top:30px;
+	margin-bottom:30px;
+	font-size:30px;
+	width:200px;
+}
+a:link {
+	color:blue;
+	text-decoration:none;
+	}
+a:visited{
+	color:blue;
+	text-decoration:none;
+	}
+a:active{
+	color:blue;
+	text-decoration:none;
+	}
+a:hover {
+	color:blue；
+	text-decoration:none;
+	}
+#top {  
+    position: absolute;  
+    left:30%;  
+    top:20%;  
+}  
+#logout {  
+    position: absolute;  
+    right:10%;  
+    top:20%;  
+}  
+table,tr,th,td{
+border:1px solid black;
+border-collapse:collapse;
+width:600px;
+height:50px;
+text-align:left;
+}

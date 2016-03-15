@@ -1,0 +1,66 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script language="javascript" src="./js/alert.js"></script>
+<link rel="stylesheet" href="./css/mainpage.css">
+</head>
+<body bgcolor="#ffffff">  
+<?php
+ 	session_start ();
+ 	include "sql_connect.php";
+ 	$user = $_SESSION ['currentuser'];
+ 	$sql = "select * from tb_member where member_id='{$user}'";
+ 	$result = mysql_query ( $sql, $con ) or die ( "Could not query: " . mysql_error () );
+ 	$name = mysql_result ( $result, 0, 1 );
+	 $employee_num = mysql_result ( $result, 0,2 );
+ 	$title = mysql_result ( $result, 0, 3);
+ 	$mail = mysql_result ( $result, 0, 5 );
+	$tel = mysql_result ( $result, 0, 6 );
+    $level = mysql_result ( $result, 0, 7 );
+ 	$status = mysql_result ( $result, 0, 8 );
+	    if($status=='0') $status='将审核';
+    else if ($status=='1') $stutas='已审核';
+       if ($level=='0') $level='数据库录入员';
+	   else if ($level=='1') $level='支付会计';
+	   else if ($level=='2') $level='支付出纳员';
+	   else if ($level=='3') $level='支付监督经理';
+	   else if ($level=='4') $level='数据库管理员';
+	   else if ($level=='5') $level='超级管理员';
+ 	mysql_free_result ( $result );
+ 	mysql_close ( $con );
+?>
+<div>
+		<br/>
+		<div class="div_button">
+				<h2>付款申请</h2>
+				</div>
+               <br/>
+			   <br/>
+			   <div class="div_table">
+			   <table >
+			     <tr>
+				   <th>用户名</th>
+				   <th>邮箱</th>
+				   <th>类型</th>
+				   <th>状态</th>
+				   <th>操作</th>
+				 </tr>
+				 <tr>
+				   <th><?php echo "$name";  ?></th>
+				   <th><?php echo "$mail";  ?></th>
+				   <th><?php echo "$level";  ?></th>
+				   <th><?php echo "$status";  ?></th>
+				   <th><input style="width:70px;font-size:15px" type="submit" name="submit" value="通过"/><input style="width:70px;font-size:15px" type="submit" name="submit" value="驳回"/></th>
+				 </tr>
+				 <tr>
+				   <th>李四</th>
+				   <th>lisi@qq.com</th>
+				   <th>支付会计</th>
+				   <th>正常</th>
+				   <th><input style="width:70px;font-size:15px" type="submit" name="submit" value="重置密码"/><input style="width:70px;font-size:15px" type="submit" name="submit" value="修改邮箱"/></th>
+				 </tr>
+			   </table>
+			   </div>
+		</div>
+</body>
+</html>
